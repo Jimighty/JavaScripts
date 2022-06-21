@@ -1,0 +1,32 @@
+const account = document.getElementById("account")
+const password = document.getElementById("password")
+const checkBox = document.getElementById("checkBox")
+const confirm = document.getElementById("confirm")
+const deleteContent = document.getElementById("deleteContent")
+
+let correctAccount = "123"
+let correctPassword = "456"
+let correctCheckBox = "789"
+
+
+//確認帳號、密碼、驗證碼是否正確
+confirm.addEventListener("click", function () {
+    if (account.value !== correctAccount) {
+        alert("帳號錯誤")
+    } else if (password.value !== correctPassword) {
+        alert("密碼錯誤")
+        } else if (checkBox.value !== correctCheckBox) {
+        alert("驗證碼錯誤")
+            } 
+    else  (
+        alert("登入成功")
+    )
+})
+
+
+//清除輸入內容
+deleteContent.addEventListener("click", function () {
+    account.value="" 
+    password.value=""
+    checkBox.value=""
+})
