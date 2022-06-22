@@ -3,24 +3,71 @@ const password = document.getElementById("password")
 const checkBox = document.getElementById("checkBox")
 const confirm = document.getElementById("confirm")
 const deleteContent = document.getElementById("deleteContent")
+const record = document.getElementById("record")
+
 
 let correctAccount = "123"
 let correctPassword = "456"
 let correctCheckBox = "789"
 
+const recordContent = []
+let recordStr = ''
+
 
 //確認帳號、密碼、驗證碼是否正確
 confirm.addEventListener("click", function () {
     if (account.value !== correctAccount) {
-        alert("帳號錯誤")
+        alert("帳號錯誤");
+        recordContent.unshift(account.value);
+        recordStr = `
+            <div class="item">
+            <div>
+                <p>紀錄：${account.value}為錯誤帳號</p>
+            </div>
+          </div>` + recordStr
+
+        record.innerHTML = recordStr
+
+
     } else if (password.value !== correctPassword) {
-        alert("密碼錯誤")
+        alert("密碼錯誤");
+        recordContent.unshift(password.value);
+        recordStr = `
+            <div class="item">
+            <div>
+                <p>紀錄：${password.value}為錯誤密碼</p>
+            </div>
+          </div>` + recordStr 
+          
+        record.innerHTML = recordStr
+
         } else if (checkBox.value !== correctCheckBox) {
-        alert("驗證碼錯誤")
+        alert("驗證碼錯誤");
+        recordContent.unshift(checkBox.value);
+        recordStr = `
+            <div class="item">
+            <div>
+                <p>紀錄：${checkBox.value}為錯誤驗證碼</p>
+            </div>
+          </div>` + recordStr 
+          
+        record.innerHTML = recordStr
+
             } 
-    else  (
-        alert("登入成功")
-    )
+    else  {
+        alert("登入成功");
+        recordStr = `
+            <div class="item">
+            <div>
+                <p>紀錄：成功登入</p>
+            </div>
+          </div>` + recordStr 
+          
+        record.innerHTML = recordStr
+    }
+
+
+
 })
 
 
@@ -30,3 +77,7 @@ deleteContent.addEventListener("click", function () {
     password.value=""
     checkBox.value=""
 })
+
+
+
+
