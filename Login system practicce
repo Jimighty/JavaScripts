@@ -13,7 +13,6 @@ let correctCheckBox = "789"
 const recordContent = []
 let recordStr = ''
 
-
 //確認帳號、密碼、驗證碼是否正確
 confirm.addEventListener("click", function () {
     if (account.value !== correctAccount) {
